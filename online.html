@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title></title>
+        <script src="jquery.js"></script>
+        <script src="online.js"></script>
+        <script>
+
+            $(function(){
+
+                tracker = Online();
+                tracker.start("http://102content.com");
+
+                setInterval(function(){
+                    if(tracker.isOnline()){
+                        $("#log").append("online\n")
+                    }else{
+                        $("#log").append("offline\n")
+                    }
+
+                }, 1000)
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div id="log">
+        </div>
+    </body>
+</html>
